@@ -15,9 +15,7 @@ public class UsuarioValidacion {
     //metodos ordinarios para validar datos
 
     public Boolean validarNombres(String nombres) throws Exception {
-        String expresionRegular = " ^[a-zA-Z]+$ ";
-        Pattern patron = Pattern.compile(expresionRegular);
-        Matcher coincidencia = patron.matcher(nombres);
+        String expresionRegular = " ^[a-zA-Z ]+$ ";
 
         if (!util.buscarCoincidencia(expresionRegular, nombres)) {
             throw new Exception("Señor, su nombre debe contener solo letras");
@@ -43,10 +41,12 @@ public class UsuarioValidacion {
         if (ubicacion.equals(1) || ubicacion.equals(2) || ubicacion.equals(3) || ubicacion.equals(4)) {
             return true;
         } else {
-            throw new Exception("sU UBICACION  NO ES VALIDA");
+            throw new Exception("su ubicacion no es valida");
         }
 
     }
+
+    
 
 }
 

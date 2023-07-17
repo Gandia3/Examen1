@@ -60,4 +60,16 @@ public class Reserva {
     public void setFechaReserva(LocalDate fechaReserva) {
         this.fechaReserva = fechaReserva;
     }
+
+
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "id=" + id +
+                ", idUsuario=" + idUsuario +
+                ", idOferta=" + idOferta +
+                ", costoTotal=" + costoTotal +
+                ", fechaReserva=" + fechaReserva +
+                '}';
+    }
 }
