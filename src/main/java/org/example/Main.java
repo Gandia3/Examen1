@@ -18,7 +18,7 @@ public class Main {
         System.out.print("Digita tu correo electronico: ");
         usuario.setCorreoElectronico(teclado.nextLine());
         System.out.println(".........................");
-        System.out.println();
+        System.out.println(usuario);
 
     }
 }
