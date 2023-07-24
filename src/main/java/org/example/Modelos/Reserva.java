@@ -2,6 +2,9 @@ package org.example.Modelos;
 
 import java.time.LocalDate;
 
+import org.example.utilidades.Util;
+import org.example.Validaciones.ReservaValidacion;
+
 public class Reserva {
 
     private Integer id;
@@ -10,15 +13,22 @@ public class Reserva {
     private Double costoTotal;
     private LocalDate fechaReserva;
 
+    private Integer reservaPersona;
+
+    private ReservaValidacion validacion = new ReservaValidacion();
+
+    private Util util = new Util();
+
     public Reserva() {
     }
 
-    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva) {
+    public Reserva(Integer id, Integer idUsuario,Integer reservaPersona , Integer idOferta, Double costoTotal, LocalDate fechaReserva) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idOferta = idOferta;
         this.costoTotal = costoTotal;
         this.fechaReserva = fechaReserva;
+        this.reservaPersona = reservaPersona;
     }
 
     public Integer getId() {
@@ -57,10 +67,30 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(LocalDate fechaReserva) {
-        this.fechaReserva = fechaReserva;
+    public void setFechaReserva(String fechaReserva) {
+       try {
+           this.validacion.formatoFecha(fechaReserva);
+           LocalDate fechaLocalDate = util.formatearFechaStringLocalDate(fechaReserva,"dd/MM/yyyy");
+           this.fechaReserva = fechaLocalDate;
+       }
+       catch (Exception error){
+           System.out.println(error.getMessage());
+       }
     }
 
+
+    public Integer getReservaPersona() {
+        return reservaPersona;
+    }
+
+    public void setReservaPersona(Integer reservaPersona) {
+        try {
+            this.validacion.validarCantidadReserva(reservaPersona);
+            this.reservaPersona = reservaPersona;
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
+    }
 
     @Override
     public String toString() {

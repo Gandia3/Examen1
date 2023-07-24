@@ -1,5 +1,8 @@
 package org.example.Modelos;
 
+import org.example.Validaciones.OfertaValidacion;
+import org.example.utilidades.Util;
+
 import java.time.LocalDate;
 
 public class Oferta {
@@ -11,6 +14,9 @@ public class Oferta {
     private LocalDate fechaFin;
     private Double costoPersona;
     private Integer idLocal;
+
+    private OfertaValidacion validacion = new OfertaValidacion();
+
 
     public Oferta() {
     }
@@ -38,7 +44,13 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+      try {
+          this.validacion.validarTitulo(titulo);
+          this.titulo = titulo;
+      }
+      catch (Exception error){
+          System.out.println(error.getMessage());
+      }
     }
 
     public String getDescripcion() {
@@ -53,16 +65,30 @@ public class Oferta {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaInicio(String fechaInicio) {
+      try {
+          this.validacion.validarFormatoFecha(fechaInicio);
+          this.fechaInicio = Util.formatearFechaStringLocalDate(fechaInicio,"dd/MM/yyyy");
+      }
+      catch (Exception error){
+          System.out.println(error.getMessage());
+      }
     }
 
     public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaFin(String fechaFin) {
+        try {
+            this.validacion.validarFormatoFecha(fechaFin);
+            LocalDate fechaFinal= Util.formatearFechaStringLocalDate(fechaFin,"dd/MM/yyyy");
+            this.validacion.validarFechas(fechaInicio,fechaFinal);
+            this.fechaFin = fechaFinal;
+        }
+        catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Double getCostoPersona() {
@@ -70,7 +96,13 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        this.costoPersona = costoPersona;
+       try {
+           this.validacion.validarCosto(costoPersona);
+           this.costoPersona = costoPersona;
+       }
+       catch (Exception error){
+           System.out.println(error.getMessage());
+       }
     }
 
     public Integer getIdLocal() {

@@ -26,7 +26,7 @@ public class OfertaValidacion {
     }
 
     public Boolean validarFechas(LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
-        if (fechaInicio.isAfter(fechaFin)==false && fechaFin.isEqual(fechaInicio)==false){
+        if (fechaInicio.isAfter(fechaFin)){
             return true;
         }else{
             throw new Exception(Mensajes.FECHAINICIO_MAYOR_FECHAFIN.getMensaje());

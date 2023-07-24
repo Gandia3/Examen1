@@ -1,5 +1,7 @@
 package org.example.utilidades;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,5 +17,11 @@ public class Util {
             return false;
         }
 
+    }
+
+    public static LocalDate formatearFechaStringLocalDate (String fecha, String formato){
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(formato);
+        LocalDate fechaFormateada = LocalDate.parse(fecha, formatoFecha);
+        return fechaFormateada;
     }
 }

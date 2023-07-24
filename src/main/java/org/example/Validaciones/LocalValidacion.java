@@ -27,4 +27,15 @@ public class LocalValidacion {
             throw new Exception(Mensajes.CARACTERES_EMPRESA_ESTABLECIDOS.getMensaje());
         }
     }
+
+    public Boolean validarUbicacion(Integer ubicacion) throws Exception{
+        if (ubicacion.equals(1) || ubicacion.equals(2) || ubicacion.equals(3) || ubicacion.equals(4)) {
+            return true;
+        } else {
+            throw new Exception(Mensajes.ZONA_INVALIDA.getMensaje());
+        }
+
+    }
+
+
 }
