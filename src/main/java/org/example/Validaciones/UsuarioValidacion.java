@@ -15,20 +15,21 @@ public class UsuarioValidacion {
 
     //metodos ordinarios para validar datos
 
-    public Boolean validarNombres(String nombres) throws Exception {
-        String expresionRegular = " ^[a-zA-Z ]+$ ";
-
-        if (!util.buscarCoincidencia(expresionRegular, nombres)) {
+    public Boolean validarNombres(String nombres)throws Exception{
+        String expresionRegular = "^[a-zA-Z\s]+$";
+        if(!util.buscarCoincidencia(expresionRegular,nombres)){
             throw new Exception(Mensajes.NOMBRE_SOLO_LETRAS.getMensaje());
-        } else if (nombres.length() < 10) {
+        }
+        else if(nombres.length()<10){
             throw new Exception(Mensajes.NOMBRE_MUY_CORTO.getMensaje());
-        } else {
+        }
+        else{
             return true;
         }
     }
 
     public Boolean validarCorreo(String correoElectronico) throws Exception {
-        String expresionRegular = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@\"\n" + "+ \"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        String expresionRegular = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         if (!util.buscarCoincidencia(expresionRegular, correoElectronico)) {
 
 

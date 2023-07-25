@@ -13,11 +13,8 @@ public enum Mensajes {
     FECHAINICIO_MAYOR_FECHAFIN("La fecha de inicio no puede ser mayor que la fecha fin"),
     FORMATOFECHA_ESTABLECIDO("Las fechas deben ser en el formato dd/MM/YYYY"),
     VALOR_COSTOS ("El valor del costo por persona no puede ser negativo"),
-
     CANTIDAD_PERSONAS ("La cantidad por reserva debe ser menor a 4 personas"),
-
     FORMATO_FECHA_INCORRECTO ("El formato de la fecha es incorrecto"),
-
     FECHAS_COHERENTES ("Señor Usuario, la fecha de inicio no puede ser mayor a la fecha de fin");
 
 

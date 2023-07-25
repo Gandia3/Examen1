@@ -7,8 +7,6 @@ import org.example.utilidades.Util;
 public class ReservaValidacion {
 
 
-    protected Reserva reserva = new Reserva();
-
     protected Util util = new Util();
 
     public ReservaValidacion() {

@@ -13,9 +13,9 @@ public class Util {
 
         if (coincidencia.matches()) {
             return true;
-        } else {
-            return false;
         }
+            return false;
+
 
     }
 

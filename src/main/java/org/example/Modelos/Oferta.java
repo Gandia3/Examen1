@@ -83,7 +83,7 @@ public class Oferta {
         try {
             this.validacion.validarFormatoFecha(fechaFin);
             LocalDate fechaFinal= Util.formatearFechaStringLocalDate(fechaFin,"dd/MM/yyyy");
-            this.validacion.validarFechas(fechaInicio,fechaFinal);
+            this.validacion.validarFechas(this.fechaInicio,fechaFinal);
             this.fechaFin = fechaFinal;
         }
         catch (Exception error){

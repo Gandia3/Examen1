@@ -9,15 +9,11 @@ public class LocalValidacion {
     public LocalValidacion() {
     }
     public Boolean validarNit( String nit ) throws  Exception {
-        String exprecionRegular = "\\d+";
-
-        if (!util.buscarCoincidencia(exprecionRegular,nit)){
-            throw new Exception(Mensajes.NUMEROS_NIT_VALIDOS.getMensaje());
-        } else if (nit.length()<10) {
-            throw new Exception(Mensajes.CARACTERES_NIT_ESTABLECIDOS.getMensaje());
-        }else{
-            return true;
-        }
+     if (nit.length() ==10){
+         return true;
+     }else{
+         throw new Exception("Solo debe contener 10 caracteres");
+     }
     }
 
     public Boolean validarNombreEmpresa(String nombre)throws  Exception{

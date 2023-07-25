@@ -9,7 +9,6 @@ import java.time.format.DateTimeParseException;
 
 public class OfertaValidacion {
 
-    protected Oferta oferta=new Oferta();
 
     public OfertaValidacion() {
     }
@@ -27,9 +26,9 @@ public class OfertaValidacion {
 
     public Boolean validarFechas(LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
         if (fechaInicio.isAfter(fechaFin)){
-            return true;
-        }else{
             throw new Exception(Mensajes.FECHAINICIO_MAYOR_FECHAFIN.getMensaje());
+        }else{
+            return true;
         }
 
     }

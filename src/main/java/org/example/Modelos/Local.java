@@ -9,7 +9,7 @@ public class Local {
     private String nombre;
     private Integer ubicacion;
     private String descripcion;
-    private LocalValidacion Validacion;
+    private LocalValidacion validacion = new LocalValidacion();
 
     public Local() {
     }
@@ -36,7 +36,7 @@ public class Local {
 
     public void setNit(String nit) {
        try {
-          this.Validacion.validarNit(nit);
+          this.validacion.validarNit(nit);
           this.nit=nit;
        }catch (Exception error){
            System.out.println(error.getMessage());
@@ -49,7 +49,7 @@ public class Local {
 
     public void setNombre(String nombre) {
        try {
-           this.Validacion.validarNombreEmpresa(nombre);
+           this.validacion.validarNombreEmpresa(nombre);
            this.nombre=nombre;
        }catch (Exception error){
            System.out.println(error.getMessage());
