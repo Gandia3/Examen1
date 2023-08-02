@@ -2,13 +2,17 @@ package org.example.Modelos;
 
 import org.example.Validaciones.UsuarioValidacion;
 
-public class Usuario {
+public abstract class Usuario {
 
     private Integer id;
     private String documento;
     private String nombre;
     private String correoElectronico;
     private Integer ubicacion;
+
+    private final Double IVA=0.19;
+
+    private final Integer costoAnual=2000000;
 
     private UsuarioValidacion validacion=new UsuarioValidacion();
 
@@ -81,6 +85,14 @@ public class Usuario {
     }
 
 
+    public Integer getCostoAnual() {
+        return costoAnual;
+    }
+
+    public Double getIVA() {
+        return IVA;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -92,5 +104,10 @@ public class Usuario {
                 ", validacion=" + validacion +
                 '}';
     }
+
+    //Metodos ordinarios
+    public abstract Double calcularAnualidad();
+
+
 
 }
