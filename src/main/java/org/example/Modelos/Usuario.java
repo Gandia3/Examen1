@@ -2,7 +2,7 @@ package org.example.Modelos;
 
 import org.example.Validaciones.UsuarioValidacion;
 
-public abstract class Usuario {
+public  class Usuario {
 
     private Integer id;
     private String documento;
@@ -19,12 +19,16 @@ public abstract class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String documento, String nombre, String correoElectronico, Integer ubicacion) {
+    public Usuario(Integer id, String documento, String nombre, String correoElectronico, Integer ubicacion, UsuarioValidacion validacion) {
         this.id = id;
         this.documento = documento;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.ubicacion = ubicacion;
+        this.validacion = validacion;
+    }
+
+    public Usuario(Integer id, String documento, String nombre, String correoElectronico, Integer ubicacion) {
     }
 
     public Integer getId() {
@@ -105,8 +109,9 @@ public abstract class Usuario {
                 '}';
     }
 
+
     //Metodos ordinarios
-    public abstract Double calcularAnualidad();
+    //public abstract Double calcularAnualidad();
 
 
 

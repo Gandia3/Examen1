@@ -27,11 +27,38 @@ class UsuarioValidacionTest {
     }
 
     @Test
-    public void validarNombreUsuarioIncorrecto(){
+    public void validarNombreUsuarioIncorrectoNumeros(){
         String nombreInvalido="Juan 1723 Garcia";//Preparando
         //Ejecuto y verifico
         Exception exception = Assertions.assertThrows(Exception.class,()->usuarioValidacion.validarNombres(nombreInvalido));
         Assertions.assertEquals(Mensajes.NOMBRE_SOLO_LETRAS.getMensaje(),exception.getMessage());
     }
+
+    @Test
+    public void validarNombreUsuarioIncorrectoCorto(){
+        String nombreInvalido="Ju";//Preparando
+        //Ejecuto y verifico
+        Exception exception = Assertions.assertThrows(Exception.class,()->usuarioValidacion.validarNombres(nombreInvalido));
+        Assertions.assertEquals(Mensajes.NOMBRE_MUY_CORTO.getMensaje(),exception.getMessage());
+    }
+
+    @Test
+    public void validarCorreoElectronicoCorrecto(){
+        String correoValido="juanjose@gmail.com";
+        Exception exception = Assertions.assertThrows(Exception.class,()->usuarioValidacion.validarNombres(correoValido));
+        Assertions.assertDoesNotThrow(()->usuarioValidacion.validarCorreo(correoValido));
+
+    }
+
+
+
+    @Test
+    public void validarCorreoElectronicoIncorrecto(){
+        String correoInvalido="juanjose.com";
+        Exception exception = Assertions.assertThrows(Exception.class,()->usuarioValidacion.validarNombres(correoInvalido));
+        Assertions.assertThrows(Exception.class,()->usuarioValidacion.validarCorreo(correoInvalido));
+    }
+
+
 
 }

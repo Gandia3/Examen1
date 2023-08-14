@@ -9,11 +9,11 @@ public class Main {
 
 
         Scanner teclado = new Scanner(System.in);
-        Afiliado afiliado = new Afiliado();
+        //Afiliado afiliado = new Afiliado();
 
 
         //ACCEDIENDO A LOS ATRIBUTOS DE UN OBJETO
-        afiliado.setNombre("ana");
+        //afiliado.setNombre("ana");
 
 
 

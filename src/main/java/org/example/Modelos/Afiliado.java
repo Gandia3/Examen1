@@ -1,8 +1,10 @@
 package org.example.Modelos;
 
+import org.example.interfaces.Deduccion;
+import org.example.interfaces.Reporte;
 import org.example.utilidades.MetodosPago;
 
-public class Afiliado extends Usuario{
+/*public class Afiliado extends Usuario implements Deduccion, Reporte {
 
     private Integer valorMembresia;
     private MetodosPago metodoPago;
@@ -10,15 +12,11 @@ public class Afiliado extends Usuario{
 
 
 
+
     public Afiliado() {
     }
 
-    @Override
-    public Double calcularAnualidad() {
-        //costo anual y restar el 20% del alor
-        return this.getCostoAnual()-(this.getValorMembresia()*0.2);
 
-    }
 
     public Afiliado(Integer id, String documento, String nombre, String correoElectronico, Integer ubicacion, Integer valorMembresia, MetodosPago metodoPago, String documentoReferido) {
         super(id, documento, nombre, correoElectronico, ubicacion);
@@ -59,4 +57,25 @@ public class Afiliado extends Usuario{
 
     }
 
-}
+    @Override
+    public void calcularDeduccionAnualidad() {
+
+    }
+
+    @Override
+    public Double calcularDescuentoMensualidad() {
+        return null;
+    }
+
+    @Override
+    public void generarReporte() {
+
+
+
+    }
+
+    @Override
+    public void modificarReporte(Integer id) {
+
+    }
+}*/

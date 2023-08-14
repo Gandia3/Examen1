@@ -12,8 +12,10 @@ class UsuarioTest {
 
 
     @BeforeEach
-    public void setUp(){
+    public void configuracionInicial(){
         this.usuario= new Usuario();
+
+
     }
 
     @Test
